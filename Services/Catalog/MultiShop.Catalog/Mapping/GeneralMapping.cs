@@ -7,7 +7,7 @@ using MultiShop.Catalog.Entities;
 
 namespace MultiShop.Catalog.Mapping
 {
-    public class GeneralMapping:Profile
+    public class GeneralMapping : Profile
     {
         public GeneralMapping()
         {
