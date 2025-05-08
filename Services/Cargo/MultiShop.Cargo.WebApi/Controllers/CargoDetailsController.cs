@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Cargo.BusinessLayer.Abstract;
 using MultiShop.Cargo.DtoLayer.Dtos.CargoDetailDto;
 using MultiShop.Cargo.EntityLayer.Concrete;
