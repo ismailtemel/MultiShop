@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MultiShop.DtoLayer.CatalogDtos.FeatureSliderDtos
+﻿namespace MultiShop.DtoLayer.CatalogDtos.FeatureSliderDtos
 {
     public class ResultFeatureSliderDto
     {

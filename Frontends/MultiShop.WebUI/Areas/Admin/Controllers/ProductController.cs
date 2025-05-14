@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using MultiShop.DtoLayer.CatalogDtos.ProductDtos;
-using Newtonsoft.Json;
-using System.Net.Http;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("Admin/Product")]
     public class ProductController : Controller
     {
         [Route("Index")]

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.Catalog.Dtos.SpecialOfferDtos;
 using MultiShop.Catalog.Services.SpecialOfferServices;
 

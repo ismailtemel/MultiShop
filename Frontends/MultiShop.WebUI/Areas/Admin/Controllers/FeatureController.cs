@@ -3,6 +3,8 @@ using MultiShop.DtoLayer.CatalogDtos.FeatureDtos;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("Admin/Feature")]
     public class FeatureController : Controller
     {
         //private readonly IFeatureService _featureService;
@@ -39,23 +41,23 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateFeature")]
         public async Task<IActionResult> CreateFeature(CreateFeatureDto createFeatureDto)
         {
-           // await _featureService.CreateFeatureAsync(createFeatureDto);
+            // await _featureService.CreateFeatureAsync(createFeatureDto);
             return RedirectToAction("Index", "Feature", new { area = "Admin" });
         }
 
         [Route("DeleteFeature/{id}")]
         public async Task<IActionResult> DeleteFeature(string id)
         {
-           // await _featureService.DeleteFeatureAsync(id);
+            // await _featureService.DeleteFeatureAsync(id);
             return RedirectToAction("Index", "Feature", new { area = "Admin" });
         }
 
-        [Route("UpdateFeature/{id}")]   
+        [Route("UpdateFeature/{id}")]
         [HttpGet]
         public async Task<IActionResult> UpdateFeature(string id)
         {
             FeatureViewBagList();
-           // var values = await _featureService.GetByIdFeatureAsync(id);
+            // var values = await _featureService.GetByIdFeatureAsync(id);
             return View(/*values*/);
         }
         [Route("UpdateFeature/{id}")]
