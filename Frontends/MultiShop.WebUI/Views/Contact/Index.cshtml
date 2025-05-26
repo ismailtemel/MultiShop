@@ -1,11 +1,11 @@
-﻿
+﻿@model CreateContactDto
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/_UILayout.cshtml";
 }
 
 <!-- Breadcrumb Start -->
-@* <div class="container-fluid">
+<div class="container-fluid">
     <div class="row px-xl-5">
         <div class="col-12">
             <nav class="breadcrumb bg-light mb-30">
@@ -52,9 +52,8 @@
                     </div>
                 </form>
             </div>
-        </div> *@
+        </div>
         @await Component.InvokeAsync("_ContactDetailComponentPartial")
-    @* </div>
-</div> *@
+    </div>
+</div>
 <!-- Contact End -->
-
