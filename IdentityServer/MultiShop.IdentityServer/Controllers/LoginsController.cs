@@ -28,15 +28,16 @@ namespace MultiShop.IdentityServer.Controllers
             var user = await _userManager.FindByNameAsync(userLoginDto.Username);
             if (result.Succeeded)
             {
-                GetCheckAppUserViewModel model = new GetCheckAppUserViewModel();
-                model.Username = userLoginDto.Username;
-                model.ID = user.Id;
-                var token = JwtTokenGenerator.GenerateToken(model);
-                return Ok(token);
+                //GetCheckAppUserViewModel model = new GetCheckAppUserViewModel();
+                //model.Username = userLoginDto.Username;
+                //model.ID = user.Id;
+                //var token = JwtTokenGenerator.GenerateToken(model);
+                return Ok(/*token*/);
             }
             else
             {
                 return Ok("Kullanıcı Adı veya Şifre Hatalı");
             }
         }
+    }
 }
