@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.IdentityServer.Dtos;
 using MultiShop.IdentityServer.Models;
+using MultiShop.IdentityServer.Tools;
 using System.Threading.Tasks;
 
 namespace MultiShop.IdentityServer.Controllers
@@ -28,11 +28,11 @@ namespace MultiShop.IdentityServer.Controllers
             var user = await _userManager.FindByNameAsync(userLoginDto.Username);
             if (result.Succeeded)
             {
-                //GetCheckAppUserViewModel model = new GetCheckAppUserViewModel();
-                //model.Username = userLoginDto.Username;
-                //model.ID = user.Id;
-                //var token = JwtTokenGenerator.GenerateToken(model);
-                return Ok(/*token*/);
+                GetCheckAppUserViewModel model = new GetCheckAppUserViewModel();
+                model.Username = userLoginDto.Username;
+                model.ID = user.Id;
+                var token = JwtTokenGenerator.GenerateToken(model);
+                return Ok(token);
             }
             else
             {

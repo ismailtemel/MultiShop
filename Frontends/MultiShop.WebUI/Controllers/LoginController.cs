@@ -1,18 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.IdentityDtos.LoginDtos;
+using MultiShop.WebUI.Services.Interfaces;
 
 namespace MultiShop.WebUI.Controllers
 {
     public class LoginController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        // private readonly IIdentityService _identityService;
+        private readonly IIdentityService _identityService;
 
 
-        public LoginController(IHttpClientFactory httpClientFactory /*IIdentityService*/ /*identityService*/)
+        public LoginController(IHttpClientFactory httpClientFactory, IIdentityService identityService)
         {
             _httpClientFactory = httpClientFactory;
-            //_identityService = identityService;
+            _identityService = identityService;
         }
 
         [HttpGet]
@@ -23,7 +24,7 @@ namespace MultiShop.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(SignInDto signInDto)
         {
-           // await _identityService.SignIn(signInDto);
+            await _identityService.SignIn(signInDto);
             return RedirectToAction("Index", "User");
         }
 

@@ -15,7 +15,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public CommentController(IHttpClientFactory httpClientFactory /*ICommentService commentService*/)
         {
             _httpClientFactory = httpClientFactory;
-           // _commentService = commentService;
+            // _commentService = commentService;
         }
 
         [Route("Index")]
@@ -36,7 +36,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("DeleteComment/{id}")]
         public async Task<IActionResult> DeleteComment(string id)
         {
-           // await _commentService.DeleteCommentAsync(id);
+            // await _commentService.DeleteCommentAsync(id);
             return RedirectToAction("Index", "Comment", new { area = "Admin" });
 
         }
