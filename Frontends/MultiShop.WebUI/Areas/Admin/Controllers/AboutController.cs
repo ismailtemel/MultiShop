@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CatalogDtos.AboutDtos;
+using MultiShop.WebUI.Services.CatalogServices.AboutServices;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
     public class AboutController : Controller
     {
-        //private readonly IAboutService _AboutService;
-        //public AboutController(IAboutService AboutService)
-        //{
-        //    _AboutService = AboutService;
-        //}
+        private readonly IAboutService _AboutService;
+        public AboutController(IAboutService AboutService)
+        {
+            _AboutService = AboutService;
+        }
 
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
             AboutViewbagList();
-            // var values = await _AboutService.GetAllAboutAsync();
-            return View(/*values*/);
+            var values = await _AboutService.GetAllAboutAsync();
+            return View(values);
         }
 
         [HttpGet]
@@ -31,14 +32,14 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("CreateAbout")]
         public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
         {
-            // await _AboutService.CreateAboutAsync(createAboutDto);
+            await _AboutService.CreateAboutAsync(createAboutDto);
             return RedirectToAction("Index", "About", new { area = "Admin" });
         }
 
         [Route("DeleteAbout/{id}")]
         public async Task<IActionResult> DeleteAbout(string id)
         {
-            // await _AboutService.DeleteAboutAsync(id);
+            await _AboutService.DeleteAboutAsync(id);
             return RedirectToAction("Index", "About", new { area = "Admin" });
         }
 
@@ -47,14 +48,14 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateAbout(string id)
         {
             AboutViewbagList();
-            // var values = await _AboutService.GetByIdAboutAsync(id);
-            return View(/*values*/);
+            var values = await _AboutService.GetByIdAboutAsync(id);
+            return View(values);
         }
         [Route("UpdateAbout/{id}")]
         [HttpPost]
         public async Task<IActionResult> UpdateAbout(UpdateAboutDto updateAboutDto)
         {
-            // await _AboutService.UpdateAboutAsync(updateAboutDto);
+            await _AboutService.UpdateAboutAsync(updateAboutDto);
             return RedirectToAction("Index", "About", new { area = "Admin" });
         }
 
