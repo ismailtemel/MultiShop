@@ -1,12 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MultiShop.WebUI.Services.CatalogServices.SpecialOfferService;
 
 namespace MultiShop.WebUI.ViewComponents.DefaultViewComponents
 {
     public class _SpecialOfferDefaultComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly ISpecialOfferService _specialOfferService;
+
+        public _SpecialOfferDefaultComponentPartial(ISpecialOfferService specialOfferService)
         {
-            return View();
+            _specialOfferService = specialOfferService;
+        }
+
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _specialOfferService.GetAllSpecialOfferAsync();
+            return View(values);
         }
     }
 }

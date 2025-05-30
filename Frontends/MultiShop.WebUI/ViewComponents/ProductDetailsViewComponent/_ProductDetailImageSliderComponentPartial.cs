@@ -1,12 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MultiShop.WebUI.Services.CatalogServices.ProductImageServices;
 
 namespace MultiShop.WebUI.ViewComponents.ProductDetailsViewComponent
 {
     public class _ProductDetailImageSliderComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IProductImageService _productImageService;
+
+        public _ProductDetailImageSliderComponentPartial(IProductImageService productImageService)
         {
-            return View();
+            _productImageService = productImageService;
+        }
+
+
+        public async Task<IViewComponentResult> InvokeAsync(string id)
+        {
+
+            var values = await _productImageService.GetByProductIdProductImageAsync(id);
+            return View(values);
+
         }
     }
 }
