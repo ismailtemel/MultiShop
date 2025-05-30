@@ -1,12 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MultiShop.WebUI.Services.CommentServices;
 
 namespace MultiShop.WebUI.ViewComponents.ProductDetailsViewComponent
 {
     public class _ProductDetailReviewComponentPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly ICommentService _commentService;
+
+        public _ProductDetailReviewComponentPartial(ICommentService commentService)
         {
-            return View();
+            _commentService = commentService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync(string id)
+        {
+            var values = await _commentService.CommentListByProductID(id);
+            return View(values);
         }
     }
 }
